@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*; 
+class Solution {
+
+	public static void main (String[] args) {
+	    String s= "The Identity Cards of the workforce will be reinstated with a circuitry to find the real time indoor positions of the location of the respective identity cards using signal triangulation and approximation algorithms";
+	
+
+
+	HashMap<String,Integer> map=new HashMap<String,Integer>();
+	int ct=0;
+	
+	int i=0;
+        while(i<s.length()){
+            while(i<s.length()-1 && s.charAt(i)==' '){
+                i++;
+            }
+            String st="";
+            if(i<s.length()){
+                ct++;
+            }
+            while(i<s.length()&& s.charAt(i)!=' '){
+                st+=s.charAt(i);
+                i++;
+            }
+            if(st!=""){
+               map.put(st,map.getOrDefault(st, 0)+1); 
+            }
+            
+        }
+       Iterator it = map.entrySet().iterator(); 
+  
+       
+        
+  
+        while (it.hasNext()) { 
+            Map.Entry x = (Map.Entry)it.next(); 
+            int val = ((int)x.getValue()); 
+            System.out.println(x.getKey() + " : " + val); 
+        }
+
+		System.out.println(ct);
+		
+	}
+}
